@@ -7,13 +7,21 @@ include_once __DIR__ . '/Models/Movie.php';
 $path = __DIR__ . '/database/movies.json';
 $jsonString = file_get_contents($path);
 $jsonData = json_decode($jsonString, true);
-var_dump($jsonData);
+// var_dump($jsonData);
 
 // $movie1= new Movie(1, 'Inception', 'Thriller'); echo '<pre>';
 // var_dump($movie1); echo '</pre>';
 
 // $movie2= new Movie(2, 'Peaky Blinders', 'Serie TV'); echo '<pre>';
 // var_dump($movie2); echo '</pre>';
+
+$movies = [];
+
+foreach($jsonData as $movie){
+    // var_dump($movie);
+    $movies [] = new Movie($movie['id'], $movie['title'], '');
+}
+var_dump($movies);
 
 ?>
 
