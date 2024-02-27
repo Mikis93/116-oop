@@ -1,8 +1,11 @@
 <?php
 // index.php
+// Importazione del trait image
+include_once __DIR__ . '/traits/Image.php';
 
 // Inclusione dei file delle classi
 include_once __DIR__ . '/Models/Movie.php';
+
 
 $path = __DIR__ . '/database/movies.json';
 $jsonString = file_get_contents($path);
@@ -18,10 +21,11 @@ $jsonData = json_decode($jsonString, true);
 $movies = [];
 
 foreach ($jsonData as $movie) {
-    // var_dump($movie);
-    $movies[] = new Movie($movie['id'], $movie['title'], '', $movie['poster_path']);
+
+    $new_movie = new Movie($movie['id'], $movie['title'], '');
+    $new_movie->setImage($movie['poster_path']);
+    $movies[] = $new_movie;
 }
-var_dump($movies);
 
 ?>
 
@@ -46,7 +50,7 @@ var_dump($movies);
                     <div class="col">
                         <div class="card" style="width: 18rem;">
                             <div class="card-body">
-                                <img src="<?= $movie->getImage()?>" class="card-img-top" alt="...">
+                                <img src="<?= $movie->getImage() ?>" class="card-img-top" alt="...">
                                 <h5 class="card-title"><?= $movie->getUpperTitle() ?></h5>
                                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                 <a href="#" class="btn btn-primary">Go somewhere</a>

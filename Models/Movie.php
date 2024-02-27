@@ -1,19 +1,19 @@
 <?php
 
+
 class Movie
 {
+    use Image;
     private $id;
     private $title;
     private $genre;
-    private $imageUrl;
 
     // Costruttore della classe
-    public function __construct($id, $title, $genre, $imageUrl)
+    public function __construct($id, $title, $genre)
     {
         $this->id = $id;
         $this->title = $title;
         $this->genre = $genre;
-        $this->imageUrl = $imageUrl;
     }
 
     // Metodi getter
@@ -48,17 +48,8 @@ class Movie
         $this->genre = $genre;
     }
 
-    public function getImage()
+    public function getUpperTitle()
     {
-        return $this->imageUrl;
-    }
-
-    public function setImage($imageUrl)
-    {
-        $this->imageUrl = $imageUrl;
-    }
-
-    public function getUpperTitle (){
-        return strtoupper($this->title) ;
+        return strtoupper($this->title);
     }
 }
