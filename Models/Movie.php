@@ -45,4 +45,8 @@ class Movie
     {
         $this->genre = $genre;
     }
+
+    public function getUpperTitle (){
+        return strtoupper($this->title) ;
+    }
 }

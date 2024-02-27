@@ -17,9 +17,9 @@ $jsonData = json_decode($jsonString, true);
 
 $movies = [];
 
-foreach($jsonData as $movie){
+foreach ($jsonData as $movie) {
     // var_dump($movie);
-    $movies [] = new Movie($movie['id'], $movie['title'], '');
+    $movies[] = new Movie($movie['id'], $movie['title'], '');
 }
 var_dump($movies);
 
@@ -42,7 +42,17 @@ var_dump($movies);
                 <h2>Film</h2>
             </div>
             <div class="row">
-
+                <?php foreach ($movies as $movie) : ?>
+                    <div class="col">
+                        <div class="card" style="width: 18rem;">
+                            <div class="card-body">
+                                <h5 class="card-title"><?=$movie->getUpperTitle()?></h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                            </div>
+                        </div>
+                    </div>
+                <?php endforeach ?>
             </div>
         </div>
     </section>
