@@ -19,7 +19,7 @@ $movies = [];
 
 foreach ($jsonData as $movie) {
     // var_dump($movie);
-    $movies[] = new Movie($movie['id'], $movie['title'], '');
+    $movies[] = new Movie($movie['id'], $movie['title'], '', $movie['poster_path']);
 }
 var_dump($movies);
 
@@ -46,7 +46,8 @@ var_dump($movies);
                     <div class="col">
                         <div class="card" style="width: 18rem;">
                             <div class="card-body">
-                                <h5 class="card-title"><?=$movie->getUpperTitle()?></h5>
+                                <img src="<?= $movie->getImage()?>" class="card-img-top" alt="...">
+                                <h5 class="card-title"><?= $movie->getUpperTitle() ?></h5>
                                 <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                                 <a href="#" class="btn btn-primary">Go somewhere</a>
                             </div>

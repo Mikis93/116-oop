@@ -5,13 +5,15 @@ class Movie
     private $id;
     private $title;
     private $genre;
+    private $imageUrl;
 
     // Costruttore della classe
-    public function __construct($id, $title, $genre)
+    public function __construct($id, $title, $genre, $imageUrl)
     {
         $this->id = $id;
         $this->title = $title;
         $this->genre = $genre;
+        $this->imageUrl = $imageUrl;
     }
 
     // Metodi getter
@@ -44,6 +46,16 @@ class Movie
     public function setGenre($genre)
     {
         $this->genre = $genre;
+    }
+
+    public function getImage()
+    {
+        return $this->imageUrl;
+    }
+
+    public function setImage($imageUrl)
+    {
+        $this->imageUrl = $imageUrl;
     }
 
     public function getUpperTitle (){
