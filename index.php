@@ -4,11 +4,16 @@
 // Inclusione dei file delle classi
 include_once __DIR__ . '/Models/Movie.php';
 
-$movie1= new Movie(1, 'Inception', 'Thriller'); echo '<pre>';
-var_dump($movie1); echo '</pre>';
+$path = __DIR__ . '/database/movies.json';
+$jsonString = file_get_contents($path);
+$jsonData = json_decode($jsonString, true);
+var_dump($jsonData);
 
-$movie2= new Movie(2, 'Peaky Blinders', 'Serie TV'); echo '<pre>';
-var_dump($movie2); echo '</pre>';
+// $movie1= new Movie(1, 'Inception', 'Thriller'); echo '<pre>';
+// var_dump($movie1); echo '</pre>';
+
+// $movie2= new Movie(2, 'Peaky Blinders', 'Serie TV'); echo '<pre>';
+// var_dump($movie2); echo '</pre>';
 
 ?>
 
